@@ -21,23 +21,6 @@
 - 📊 **Thống kê**: Dashboard phân tích dữ liệu
 - 📱 **Responsive**: Tương thích mọi thiết bị
 
-## 📁 Cấu trúc dự án
 
-```
-Event-Management-Web/
-├── backend/                 # API Server
-│   └── src/
-│       ├── controllers/     # Xử lý logic
-│       ├── models/          # User, Event, Ticket
-│       ├── routes/          # Định tuyến API
-│       ├── middleware/      # Auth, validation
-│       └── utils/           # Helper functions
-├── frontend/                # React App
-│   └── src/
-│       ├── pages/           # Các trang (Home, Events, Profile...)
-│       ├── components/      # UI components
-│       └── lib/             # Utilities
-└── docker-compose.yml       # Deploy config
-```
 
 

@@ -1,0 +1,24 @@
+*.md
+backend/scripts/
+
+# Node / TypeScript common
+node_modules/
+dist/
+
+# Env / secrets
+.env
+backend/.env
+frontend/.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

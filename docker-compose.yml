@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  backend:
+    # Sử dụng image từ Docker Hub (đã được build trong GitHub Actions)
+    # Nếu muốn build local, uncomment phần build và comment phần image
+    image: ${DOCKER_USERNAME:-yourusername}/event-management-backend:latest
+    # build: 
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    container_name: event-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./backend/.env
+    networks:
+      - event-network
+
+  frontend:
+    # Sử dụng image từ Docker Hub (đã được build với HTTPS URL trong GitHub Actions)
+    # Nếu muốn build local, uncomment phần build và comment phần image
+    image: ${DOCKER_USERNAME:-yourusername}/event-management-frontend:latest
+    # build:
+    #   context: ./frontend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     - VITE_API_URL=https://nhihoangf.id.vn
+    container_name: event-frontend
+    restart: unless-stopped
+    ports:
+      - "3001:3000"  # Đổi từ 80:3000 để Nginx có thể dùng port 80
+    depends_on:
+      - backend
+    networks:
+      - event-network
+
+networks:
+  event-network:
+    driver: bridge
